@@ -4,7 +4,7 @@
 
 + все 3 файла запускаются командами в консоли `python name_file.py` 
 + выходные данные сохраняются в папку, в которой происходит запуск
-+ предварительно установите библиотеки указанные в файле [requirements.txt](https://github.com/YOya-Shep/test-models/blob/main/requirements.txt)
++ предварительно установите библиотеки, указанные в файле [requirements.txt](https://github.com/YOya-Shep/test-models/blob/main/requirements.txt)
 + использовалcя `python 3.9.7` (рандомно версию выбрала, тк не хотела самый новый использовать)
 + примеры выходных результатов можно просмотреть в папке [results](https://github.com/YOya-Shep/test-models/tree/main/results)
 
@@ -31,17 +31,17 @@
     + в матрице корреляции все значения близки к 0 => нет линейной связи
     + сохраненные в analisis_results.json значения VIF близки к 1
 
-на полученном графике остатков residuals_plot значения находятся около 0, это подтверждает отсутствие линейной взаимосвязи
+На полученном графике остатков residuals_plot значения находятся около 0, это подтверждает отсутствие линейной взаимосвязи.
 
 ![residuals_plot.png](https://github.com/YOya-Shep/test-models/blob/main/results/task2_regression_20250926_202030/residuals_plot.png)
 
-в файл [building_results.json](https://github.com/YOya-Shep/test-models/blob/main/results/task2_regression_20250926_202030/building_results.json) сохранены 
+В файл [building_results.json](https://github.com/YOya-Shep/test-models/blob/main/results/task2_regression_20250926_202030/building_results.json) сохранены:
 + прогнозы(predictions)
 + mse около 0,25. Значение близко к дисперсии шума (0.5² = 0.25) => модель почти идеально уловила линейную зависимость
-+ r2 близко к 1, это значит что модель хорошо объясняет дисперсию целевой переменной
++ r2 близко к 1. Это значит, что модель хорошо объясняет дисперсию целевой переменной
 
 Важность признаков сохранена в [analysis_results.json](https://github.com/YOya-Shep/test-models/blob/main/results/task2_regression_20250926_202030/analysis_results.json) как feature_importance и принимает значения близкие к 1, к -1 или к 0. 
-+ 0 означает, что признак практически не влияет на вывод,
++ 0 - означает, что признак практически не влияет на вывод,
 + 1 - сильно влияет с положительной корреляцией,
 + -1 - сильно влияет с отрицательной корреляцией.
 Там же рядом сохранены значения остатков (residuals).
@@ -51,7 +51,7 @@
 
 Здесь также есть константа `N_SAMPLES = 1000` в начале кода. 
 
-как и во втором файле, в task3_time_series.py есть отдельная функция def main(), поэтому можно использовать 
+Как и во втором файле, в task3_time_series.py есть отдельная функция def main(), поэтому можно использовать 
 ```
 import task3_time_series
 
@@ -60,7 +60,7 @@ task3_time_series.main()
 для запуска всего функционала, импортируя модуль для повторного использования кода в других проектах. Аналогичным способом можно вызывать отдельные функции.
 
 
-в папке [task3_time_series_time](https://github.com/YOya-Shep/test-models/tree/main/results/task3_time_series_20250926_202111) содержатся результаты работы.
+В папке [task3_time_series_time](https://github.com/YOya-Shep/test-models/tree/main/results/task3_time_series_20250926_202111) содержатся результаты работы.
 
 График time_series.png показывает сгенерированный временной ряд, 
 ![time_series.png](https://github.com/YOya-Shep/test-models/blob/main/results/task3_time_series_20250926_202111/time_series.png)
@@ -87,5 +87,6 @@ task3_time_series.main()
 ![AR_vs_ETS_error.png](https://github.com/YOya-Shep/test-models/blob/main/results/task3_time_series_error/AR_vs_ETS_if_None_seasonal.png)
 
 А в файле [results.json](https://github.com/YOya-Shep/test-models/blob/main/results/task3_time_series_error/results.json) видно, что первые значения MAE и RMSE были заметно больше итоговых.
+
 
 
