@@ -11,6 +11,7 @@
 ### task_1 Классификация
 
 В блоке `if __name__ == "__main__":` происходят последовательные вызовы функций и генерация синтетического датасета (параметры указаны там же). Обычно его используют когда пишут модуль, предназначенный для непосредственного исполнения. Результаты сохраняются в папке task_of_classification, и выглядят как файл results_model.txt сохраненными наилучшими параметрами и коэффициентом Джини и файл scatter_plot.png с диаграммой рассеяния показывающей взаимосвязь двух признаков для обоих классов. 
+
 ![scatter_plot_2_classes](https://github.com/YOya-Shep/test-models/blob/main/results/task_of_classification_20250926_014520/scatter_plot.png) 
 
 Здесь в функции `scattering_graph` создан список `custom_colors = ["#00528d", "#d36900"]`. Поэтому, если количество классов будет изменено, то нужно
@@ -31,6 +32,7 @@
     + сохраненные в analisis_results.json значения VIF близки к 1
 
 на полученном графике остатков residuals_plot значения находятся около 0, это подтверждает отсутствие линейной взаимосвязи
+
 ![residuals_plot.png](https://github.com/YOya-Shep/test-models/blob/main/results/task2_regression_20250926_202030/residuals_plot.png)
 
 в файл [building_results.json](https://github.com/YOya-Shep/test-models/blob/main/results/task2_regression_20250926_202030/building_results.json) сохранены 
@@ -55,6 +57,7 @@ task3_time_series.main()
 
 
 в папке [task3_time_series_time](https://github.com/YOya-Shep/test-models/tree/main/results/task3_time_series_20250926_202111) содержатся результаты работы.
+
 График time_series.png показывает сгенерированный временной ряд, 
 ![time_series.png](https://github.com/YOya-Shep/test-models/blob/main/results/task3_time_series_20250926_202111/time_series.png)
 
@@ -76,5 +79,8 @@ task3_time_series.main()
 ```
 
 в папке [task3_time_series_error](https://github.com/YOya-Shep/test-models/tree/main/results/task3_time_series_error) содержатся результаты моделей до исправления. Тут на рисунке AR_vs_ETS видно, что предсказания ETS слишком резко уходят вверх, а предсказания AR постепенно сглаживаются. Чтобы это исправить, были внесены изменения в построение моделей. ETS была добавлена сезонность `model = ExponentialSmoothing(y_train, trend="add", damped_trend=True, seasonal="add", seasonal_periods=50)`, а для AR увеличен параметр lags, отвечающий за количество используемых предыдущих значений, `model = AutoReg(y_train, lags=40)`.
-![AR_vs_ETS.png](https://github.com/YOya-Shep/test-models/blob/main/results/task3_time_series_error/AR_vs_ETS.png)
+
+![AR_vs_ETS_error.png](https://github.com/YOya-Shep/test-models/blob/main/results/task3_time_series_error/AR_vs_ETS_if_None_seasonal.png)
+
 А в файле [results.json](https://github.com/YOya-Shep/test-models/blob/main/results/task3_time_series_error/results.json) видно что первые значения MAE и RMSE были заметно больше итоговых.
+
